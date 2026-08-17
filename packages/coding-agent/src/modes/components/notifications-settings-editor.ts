@@ -20,13 +20,14 @@ import type {
 	NotificationStatusReport,
 	NotificationTestResult,
 } from "../../sdk/bus/notification-service";
+import type { NotificationVerbosity } from "../../sdk/bus/notification-verbosity";
 import type { NotificationSessionReconcileResult, NotificationSessionStatus } from "../../sdk/bus/session-control";
 import { theme } from "../theme/theme";
 
 /** Safe scalar notification preferences. Credentials and destination IDs are deliberately absent. */
 export interface NotificationsEditorPreferences {
 	redact: boolean;
-	verbosity: "lean" | "verbose";
+	verbosity: NotificationVerbosity;
 	sessionScope: "all" | "primary";
 	richEnabled: boolean;
 	richDraftEnabled: boolean;
@@ -917,7 +918,8 @@ export class NotificationsSettingsEditorComponent implements Component, Focusabl
 				draft.redact = !draft.redact;
 				return;
 			case "enable":
-				draft.verbosity = draft.verbosity === "lean" ? "verbose" : "lean";
+			draft.verbosity =
+				draft.verbosity === "quiet" ? "lean" : draft.verbosity === "lean" ? "verbose" : "quiet";
 				return;
 			case "disable":
 				draft.sessionScope = draft.sessionScope === "all" ? "primary" : "all";

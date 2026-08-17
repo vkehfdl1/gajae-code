@@ -456,13 +456,14 @@ Supported reply paths:
   topic identifies the session, so no session tag is needed).
 
 In threaded mode the user can also adjust per-session behaviour with in-thread
-config commands: `/verbose`, `/lean`, `/verbosity <lean|verbose>`, and
-`/redact <on|off>`. The legacy `/answer <session-tag> <answer>` command is
+In threaded mode the user can also adjust per-session behaviour with in-thread
+config commands: `/quiet`, `/verbose`, `/lean`, `/verbosity <quiet|lean|verbose>`,
+and `/redact <on|off>`. The legacy `/answer <session-tag> <answer>` command is
 removed — replies are routed by the topic they arrive in.
 
 Flat fallback keeps outbound notifications and inline-button answers working, but
 plain free-text never guesses from the global pending-ask set. Free-text replies
-and `/verbose`/`/lean`/`/verbosity`/`/redact` commands are thread-native and
+and `/quiet`/`/verbose`/`/lean`/`/verbosity`/`/redact` commands are thread-native and
 require Threaded Mode/topic routing. Enable Threaded Mode in @BotFather > Bot
 Settings > Threads Settings when you need free-text replies or session commands.
 Do not pair a group, supergroup, or channel to work around a missing BotFather

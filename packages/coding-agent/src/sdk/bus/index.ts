@@ -77,6 +77,20 @@ import {
 } from "./config";
 import { telegramControlCommandUsage } from "./config-commands";
 import { imageAttachmentsFromMessage, notificationActionPayload, summaryFromMessage, truncate } from "./helpers";
+import {
+	classifyVisibleDelivery,
+	mayCreateVisiblePayload,
+	type NotificationVerbosity,
+	parseNotificationVerbosityStrict,
+	type VisibleDeliveryClass,
+} from "./notification-verbosity";
+import {
+	classifyVisibleDelivery,
+	mayCreateVisiblePayload,
+	type NotificationVerbosity,
+	parseNotificationVerbosityStrict,
+	type VisibleDeliveryClass,
+} from "./notification-verbosity";
 import { assertNativeRuntimeCompatibility } from "./native-runtime-compatibility";
 import { NotificationSessionController, type NotificationSessionRuntime } from "./session-control";
 import { type EnsureDaemonResult, ensureTelegramDaemonRunningDetailed } from "./telegram-daemon";
